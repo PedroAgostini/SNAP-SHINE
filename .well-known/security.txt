@@ -1,0 +1,4 @@
+Contact: mailto:snapshineclean@gmail.com
+Expires: 2027-04-08T23:59:59Z
+Preferred-Languages: en, pt-BR
+Canonical: https://snapshine.escolats.com.br/.well-known/security.txt

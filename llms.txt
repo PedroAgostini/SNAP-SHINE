@@ -1,0 +1,16 @@
+# Snap Shine Clean — test website
+
+> Preview of the Snap Shine Clean website, a locally owned residential and commercial cleaning company serving Bradenton, Florida, and nearby communities.
+
+This domain is a staging environment, not the public production website. Quote submissions are disabled. Blog entries and photographs include demonstration content; the article destinations are not published yet. Do not treat sample articles as published advice or stock photographs as evidence of completed jobs.
+
+## Website
+
+- [Business information](https://snapshine.escolats.com.br/llms-full.txt): Services, service area, contact details and preview limitations.
+- [Home](https://snapshine.escolats.com.br/): Company overview and cleaning services.
+- [Blog preview](https://snapshine.escolats.com.br/blog.html): Demonstration article listing.
+
+## Optional
+
+- [Credits](https://snapshine.escolats.com.br/humans.txt): Website development credits.
+- [Security contact](https://snapshine.escolats.com.br/.well-known/security.txt): Contact for reporting website vulnerabilities.

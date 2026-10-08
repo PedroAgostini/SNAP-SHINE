@@ -1,0 +1,31 @@
+# Snap Shine Clean
+
+This is the test website at https://snapshine.escolats.com.br/.
+The preview is not accepting quote submissions.
+
+## Company
+
+Snap Shine Clean provides locally owned, fully insured and pet-friendly cleaning for homes and businesses in Bradenton and nearby Florida communities.
+
+## Services
+
+- Regular Cleaning
+- Deep Cleaning
+- Move-In / Move-Out Cleaning
+- Post-Construction Cleaning
+- Commercial Cleaning
+
+## Service area
+
+About 35 miles around Bradenton, Florida. Listed communities: Bradenton, Palmetto, Lakewood Ranch, Ellenton, Parrish, Sarasota, Sun City Center, Ruskin, Anna Maria Island, Longboat Key and Holmes Beach.
+
+## Contact
+
+- Phone and text: +1 (941) 402-6861
+- Email: snapshineclean@gmail.com
+- Hours: Monday–Friday, 8:00 AM–5:00 PM, America/New_York.
+- Prices are not published; a quote depends on the requested service and space.
+
+## Preview limitations
+
+The form cannot send requests. Article titles, excerpts and stock photographs in the blog are demonstration content. Individual articles are not available in this build. Stock photography must not be represented as actual client work. This preview does not establish additional guarantees, certifications or prices.

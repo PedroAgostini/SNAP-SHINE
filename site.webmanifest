@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "Snap Shine Clean — Preview",
+  "short_name": "Snap Shine",
+  "description": "Test website for Snap Shine Clean in Bradenton, Florida.",
+  "lang": "en-US",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#1f2fa0",
+  "icons": [
+    {
+      "src": "/assets/img/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

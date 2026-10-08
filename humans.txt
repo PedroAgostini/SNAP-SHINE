@@ -1,0 +1,15 @@
+/* TEAM */
+Website development: Eu Sou TS
+Website: https://eusouts.com.br/
+
+/* SITE */
+Project: Snap Shine Clean
+Environment: Test / staging
+URL: https://snapshine.escolats.com.br/
+Language: English (US)
+Last update: 2026-10-08
+Standards: HTML5, CSS, JavaScript
+Animation: GSAP
+Typography: Gabarito, Figtree, Archivo via Google Fonts
+Photography: Client-supplied Snap Shine photos on the homepage and before/after gallery; remaining temporary stock images via Unsplash
+Brand assets: Snap Shine Clean

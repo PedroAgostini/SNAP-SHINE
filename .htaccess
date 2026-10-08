@@ -1,0 +1,54 @@
+# Snap Shine Clean — TEST environment: snapshine.escolats.com.br
+# Apache 2.4 / compatible LiteSpeed. Review before moving to production.
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Keep internal project files private; preserve .well-known and ACME paths.
+  RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
+  RewriteRule \.(?:md|log|bak|sql|ini|env|cjs|ps1|zip)$ - [F,L,NC]
+  RewriteRule ^antispam\.php$ - [F,L,NC]
+
+  # Temporary redirects while testing; no effect on localhost.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?snapshine\.escolats\.com\.br$ [NC]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\.snapshine\.escolats\.com\.br$ [NC]
+  RewriteRule ^ https://snapshine.escolats.com.br%{REQUEST_URI} [R=302,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Crawlers must be allowed to read this header (see robots.txt).
+  Header always set X-Robots-Tag "noindex, nofollow, nosnippet"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Test builds: changes must appear without waiting for cached assets to expire.
+  Header onsuccess unset Cache-Control
+  Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header always set Pragma "no-cache"
+  Header always set Expires "0"
+
+  <Files "clear-cache.html">
+    # Browser cache for this origin only. No cookies, sessions or storage clearing.
+    Header always set Clear-Site-Data "\"cache\""
+  </Files>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/svg+xml .svg
+  AddType application/xml .xml
+  AddType text/plain .txt
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript text/javascript application/json application/manifest+json application/xml image/svg+xml
+</IfModule>
