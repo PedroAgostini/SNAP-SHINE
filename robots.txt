@@ -4,6 +4,6 @@ User-agent: *
 Allow: /
 Disallow: /.impeccable/
 Disallow: /antispam.php
-Disallow: /clear-cache.html
+Disallow: /clear-cache
 
 Sitemap: https://snapshine.escolats.com.br/sitemap.xml

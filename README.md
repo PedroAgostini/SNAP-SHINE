@@ -39,13 +39,15 @@ git clone https://github.com/PedroAgostini/SNAP-SHINE.git
 cd SNAP-SHINE
 ```
 
-Abra `index.html` com a extensão **Live Server** do VS Code. Se tiver Python instalado, também pode iniciar um servidor estático:
+Com Node.js instalado, inicie a prévia local (sem instalar dependências):
 
 ```sh
-python -m http.server 4173 --bind 127.0.0.1
+node servir-local.cjs
 ```
 
-Acesse **http://127.0.0.1:4173/**. Não é necessário instalar dependências para servir os arquivos. Fontes do Google, GSAP, imagens de banco ainda presentes e o mapa dependem de conexão com a internet.
+Acesse **http://127.0.0.1:4173/** ou **http://127.0.0.1:4173/blog**. O servidor local reproduz as URLs sem extensão e os redirecionamentos das páginas antigas. Fontes do Google, GSAP, imagens de banco ainda presentes e o mapa dependem de conexão com a internet.
+
+Na hospedagem Apache/LiteSpeed, o `.htaccess` atende `/blog` e `/clear-cache` usando os arquivos HTML internamente. `/index.html` redireciona para `/`, e `/blog.html` redireciona para `/blog`, preservando parâmetros da URL. Servidores estáticos genéricos que ignoram `.htaccess` precisam de configuração equivalente.
 
 ## Estrutura
 
@@ -69,6 +71,7 @@ SNAP-SHINE/
 ├── clear-cache.html
 ├── antispam.php                   # Biblioteca para integração futura
 ├── preparar-teste.ps1             # Geração do pacote de publicação
+├── servir-local.cjs               # Prévia local com URLs sem extensão
 └── AMBIENTE-DE-TESTE.md            # Configuração e conferência no servidor
 ```
 

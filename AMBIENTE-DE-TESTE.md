@@ -10,7 +10,7 @@ O pacote `snapshine-teste.zip` contém somente os arquivos públicos, incluindo 
 2. Extraia o conteúdo do ZIP diretamente na pasta raiz desse subdomínio. `index.html` e `.htaccess` devem ficar lado a lado, sem uma pasta extra envolvendo o site.
 3. Confira que os arquivos iniciados por ponto foram enviados. `.well-known` é uma pasta; `security.txt` fica dentro dela.
 4. Desative o cache de página/CDN do subdomínio no painel da hospedagem enquanto estiver revisando. O `.htaccess` envia `no-store` para o navegador; um cache imposto pelo painel pode exigir limpeza separada.
-5. Abra a home, o blog e `/clear-cache.html` usando HTTPS.
+5. Abra `/`, `/blog` e `/clear-cache` usando HTTPS. Os arquivos HTML continuam no servidor, mas a extensão não aparece nos endereços públicos.
 
 Requisitos da configuração: Apache 2.4 ou LiteSpeed compatível, com `.htaccess` habilitado e suporte a `mod_rewrite` e `mod_headers`. O site principal é estático. O arquivo PHP é apenas uma biblioteca para integração futura; o formulário permanece desativado.
 
@@ -47,7 +47,10 @@ O sitemap foi preparado para validar a estrutura, mas **não deve ser enviado ao
 - Respostas: `X-Robots-Tag: noindex, nofollow, nosnippet` e `Cache-Control: no-store, no-cache, must-revalidate, max-age=0`.
 - `/site.webmanifest`: JSON válido com `Content-Type: application/manifest+json`.
 - `/.well-known/security.txt`: HTTP 200 e texto legível.
-- `/clear-cache.html`: cabeçalho `Clear-Site-Data: "cache"`; o suporte depende do navegador e de HTTPS.
+- `/index.html` e `/index`: redirecionamento 301 para `/`.
+- `/blog.html` e `/blog/`: redirecionamento 301 para `/blog`, preservando parâmetros como `?page=2`.
+- `/clear-cache.html`: redirecionamento 301 para `/clear-cache`.
+- `/clear-cache`: cabeçalho `Clear-Site-Data: "cache"`; o suporte depende do navegador e de HTTPS.
 - `/antispam.php`: HTTP 403 com este `.htaccess`. Se a regra Apache não estiver ativa, PHP retorna 503 e a mensagem de envio desativado.
 - Formulário: etapas navegáveis, botão final desativado e nenhum POST.
 

@@ -8,7 +8,7 @@ This domain is a staging environment, not the public production website. Quote s
 
 - [Business information](https://snapshine.escolats.com.br/llms-full.txt): Services, service area, contact details and preview limitations.
 - [Home](https://snapshine.escolats.com.br/): Company overview and cleaning services.
-- [Blog preview](https://snapshine.escolats.com.br/blog.html): Demonstration article listing.
+- [Blog preview](https://snapshine.escolats.com.br/blog): Demonstration article listing.
 
 ## Optional
 
