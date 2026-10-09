@@ -7,6 +7,8 @@
 !/assets/
 !/assets/css/
 !/assets/icons/
+!/artigos/
+!/assets/imagens-blog/
 !/assets/imagens-selecionadas/
 !/assets/imagens-selecionadas/ambientes/
 !/assets/imagens-selecionadas/antes-e-depois/
@@ -38,8 +40,10 @@
 !/assets/img/app-icon.svg
 !/assets/img/logo.png
 !/assets/img/logo-alt.png
+!/artigos/*.html
+!/assets/imagens-blog/*.webp
+!/assets/js/article.js
 !/assets/js/blog.js
-!/assets/js/blog-posts.js
 !/assets/js/clear-cache.js
 !/assets/js/main.js
 !/blog.html

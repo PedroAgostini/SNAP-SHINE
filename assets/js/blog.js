@@ -1,5 +1,22 @@
-/* Blog index: newest first, 3-column grid, paginated (?page=N). Posts come from blog-posts.js. */
+/* Blog pages. Index: the post cards are static HTML (newest first); this paginates them (?page=N).
+   Every blog page: keeps the compact navigation dismissible without making it a modal. */
 (() => {
+  const header = document.querySelector('[data-header]');
+  const menu = document.querySelector('[data-menu]');
+  const menuBtn = document.querySelector('[data-menu-btn]');
+  if (menu && menuBtn) {
+    const closeMenu = () => { if (!menu.hidden) menuBtn.click(); };
+    document.addEventListener('click', (event) => {
+      if (!header?.contains(event.target)) closeMenu();
+    });
+    document.addEventListener('focusin', (event) => {
+      if (!header?.contains(event.target)) closeMenu();
+    });
+    window.matchMedia('(max-width: 1240px)').addEventListener('change', (event) => {
+      if (!event.matches) closeMenu();
+    });
+  }
+
   const PER_PAGE = 9;
   const grid = document.querySelector('[data-blog-grid]');
   const pager = document.querySelector('[data-blog-pager]');
@@ -8,32 +25,13 @@
   const heading = document.querySelector('#blog-heading');
   if (!grid || !pager) return;
 
-  const posts = (window.SNAP_POSTS || []).slice().sort((a, b) => b.date.localeCompare(a.date));
-  const pages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const fmt = (iso) => { const [y, m, d] = iso.split('-').map(Number); return months[m - 1] + ' ' + d + ', ' + y; };
-  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const cards = [...grid.querySelectorAll('.post-card')];
+  const pages = Math.max(1, Math.ceil(cards.length / PER_PAGE));
+  const baseTitle = document.title;
   const pageFromUrl = () => {
     const n = parseInt(new URLSearchParams(location.search).get('page'), 10);
     return Number.isFinite(n) ? Math.min(Math.max(n, 1), pages) : 1;
   };
-
-  const card = (p) => `
-    <article class="post-card">
-      <a class="post-media" href="${esc(p.url)}" tabindex="-1" aria-hidden="true">
-        <img data-placeholder="stock" src="${esc(p.image)}?w=800&q=75&auto=format&fit=crop" alt="" loading="lazy" width="800" height="500">
-      </a>
-      <div class="post-body">
-        <p class="post-meta">
-          <span class="post-cat">${esc(p.category)}</span>
-          <span>${p.readMin} min read</span>
-          <time datetime="${p.date}">${fmt(p.date)}</time>
-        </p>
-        <h2 class="post-title"><a href="${esc(p.url)}">${esc(p.title)}</a></h2>
-        <p class="post-excerpt">${esc(p.excerpt)}</p>
-        <a class="btn btn-sun btn-sm post-btn" href="${esc(p.url)}" aria-label="Read article: ${esc(p.title)}">Read Article <svg class="ic"><use href="#i-arrow"/></svg></a>
-      </div>
-    </article>`;
 
   const pagerHtml = (page) => {
     if (pages < 2) return '';
@@ -54,13 +52,12 @@
   };
 
   const render = (page, scroll) => {
-    const slice = posts.slice((page - 1) * PER_PAGE, page * PER_PAGE);
-    grid.innerHTML = slice.length ? slice.map(card).join('') : '<p class="blog-empty">New articles are coming soon.</p>';
+    cards.forEach((card, i) => { card.hidden = i < (page - 1) * PER_PAGE || i >= page * PER_PAGE; });
     pager.innerHTML = pagerHtml(page);
-    const summary = posts.length ? `${(page - 1) * PER_PAGE + 1}\u2013${Math.min(page * PER_PAGE, posts.length)} of ${posts.length} articles` : '0 articles';
+    const summary = cards.length ? `${(page - 1) * PER_PAGE + 1}–${Math.min(page * PER_PAGE, cards.length)} of ${cards.length} articles` : '0 articles';
     if (count) count.textContent = summary;
     if (status) status.textContent = `Page ${page} of ${pages}. ${summary}.`;
-    document.title = (page > 1 ? 'Blog, page ' + page : 'Blog') + ' | Snap Shine Clean';
+    document.title = page > 1 ? `${baseTitle} (page ${page})` : baseTitle;
     if (scroll) {
       heading?.focus({ preventScroll: true });
       grid.closest('section').scrollIntoView({
@@ -84,19 +81,4 @@
   window.addEventListener('popstate', () => render(pageFromUrl(), true));
 
   render(pageFromUrl(), false);
-
-  // Keep the blog's compact navigation dismissible without making it a modal.
-  const header = document.querySelector('[data-header]');
-  const menu = document.querySelector('[data-menu]');
-  const menuBtn = document.querySelector('[data-menu-btn]');
-  const closeMenu = () => { if (menu && !menu.hidden) menuBtn.click(); };
-  document.addEventListener('click', (event) => {
-    if (!header?.contains(event.target)) closeMenu();
-  });
-  document.addEventListener('focusin', (event) => {
-    if (!header?.contains(event.target)) closeMenu();
-  });
-  window.matchMedia('(max-width: 1240px)').addEventListener('change', (event) => {
-    if (!event.matches) closeMenu();
-  });
 })();

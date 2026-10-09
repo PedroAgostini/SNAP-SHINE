@@ -26,7 +26,7 @@ Uma experiência voltada a apresentar os serviços, mostrar resultados reais e f
 | Página inicial | Apresentação, serviços, portfólio, depoimentos, diferenciais e contato. |
 | Portfólio real | Quatro pares de antes e depois, quadro proporcional e miniaturas sem cortes. |
 | Navegação mobile | Menu compacto, carrossel de fotos e barra de contato fixa. |
-| Blog | Listagem paginada, com ajustes para telas pequenas e navegação por teclado. |
+| Blog | Os 9 artigos do site antigo, em páginas estáticas com sumário, SEO completo (meta tags, Open Graph, JSON-LD) e artigos relacionados. |
 | Movimento | GSAP/ScrollTrigger e respeito à preferência por movimento reduzido. |
 | Ambiente de teste | Configuração Apache/LiteSpeed, `noindex`, cache desativado e formulário bloqueado. |
 
@@ -45,21 +45,23 @@ Com Node.js instalado, inicie a prévia local (sem instalar dependências):
 node servir-local.cjs
 ```
 
-Acesse **http://127.0.0.1:4173/** ou **http://127.0.0.1:4173/blog**. O servidor local reproduz as URLs sem extensão e os redirecionamentos das páginas antigas. Fontes do Google, GSAP, imagens de banco ainda presentes e o mapa dependem de conexão com a internet.
+Acesse **http://127.0.0.1:4173/**, **http://127.0.0.1:4173/blog** ou um artigo, como **http://127.0.0.1:4173/blog/post-construction-cleaning-bradenton**. O servidor local reproduz as URLs sem extensão e os redirecionamentos das páginas antigas. Fontes do Google, GSAP, imagens de banco ainda presentes e o mapa dependem de conexão com a internet.
 
-Na hospedagem Apache/LiteSpeed, o `.htaccess` atende `/blog` e `/clear-cache` usando os arquivos HTML internamente. `/index.html` redireciona para `/`, e `/blog.html` redireciona para `/blog`, preservando parâmetros da URL. Servidores estáticos genéricos que ignoram `.htaccess` precisam de configuração equivalente.
+Na hospedagem Apache/LiteSpeed, o `.htaccess` atende `/blog` e `/clear-cache` usando os arquivos HTML internamente. `/index.html` redireciona para `/`, e `/blog.html` redireciona para `/blog`, preservando parâmetros da URL. Cada artigo fica em `artigos/<slug>.html` e é servido em `/blog/<slug>`; os endereços antigos do WordPress (`/<slug>/`) redirecionam com 301 para o novo endereço. Servidores estáticos genéricos que ignoram `.htaccess` precisam de configuração equivalente.
 
 ## Estrutura
 
 ```text
 SNAP-SHINE/
 ├── index.html                    # Página inicial
-├── blog.html                     # Listagem do blog
+├── blog.html                     # Listagem do blog (cards estáticos)
+├── artigos/                      # Um HTML por artigo, servido em /blog/<slug>
 ├── assets/
 │   ├── css/                      # Estilos do site e utilitário de cache
 │   ├── js/                       # Interações, formulário e blog
 │   ├── icons/                    # Os três SVGs externos usados no site
 │   ├── img/                      # Logos e ícone do manifesto
+│   ├── imagens-blog/             # Imagem de capa de cada artigo (WebP)
 │   └── imagens-selecionadas/
 │       ├── ambientes/            # Quatro fotos reais em WebP
 │       └── antes-e-depois/        # Oito fotos: quatro comparações
@@ -113,8 +115,8 @@ Extraia o conteúdo do ZIP na raiz do subdomínio **snapshine.escolats.com.br**,
 > **Ambiente de teste:** o envio de orçamento está desativado. O site contém `noindex` e não deve ser usado em produção sem revisar a configuração.
 
 - O formulário permite navegar pelas etapas, mas não envia mensagens. `antispam.php` é uma biblioteca auxiliar, não um endpoint ativo.
-- As entradas do blog são demonstrativas; páginas individuais dos artigos ainda não estão disponíveis.
-- Algumas imagens ilustrativas de banco continuam em serviços e no blog. As fotos do portfólio são reais.
+- O blog traz os 9 artigos publicados em snapshineclean.com, com o texto original e as imagens originais de capa.
+- Algumas imagens ilustrativas de banco continuam em serviços e no CTA do blog. As fotos do portfólio são reais.
 - A interface foi conferida em Chromium e WebKit, incluindo telas de 320 a 1440 px. A aplicação do `.htaccess` e a execução de PHP precisam ser conferidas na hospedagem.
 
 ## Créditos

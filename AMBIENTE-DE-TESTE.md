@@ -2,7 +2,7 @@
 
 Destino: **https://snapshine.escolats.com.br/**
 
-O pacote `snapshine-teste.zip` contém somente os arquivos públicos, incluindo `.htaccess` e `.well-known/security.txt`. As revisões mobile do blog e as 12 fotos WebP selecionadas estão incluídas. As fotos de ambientes aparecem na home; os quatro pares reais estão no quadro original da seção Results, com miniaturas abaixo e divisão fixa, sem arraste, porque seus enquadramentos diferem. Os arquivos originais de fotos e vídeos, a galeria de curadoria e suas notas ficam fora do ZIP. Não há necessidade de build ou instalação de dependências no servidor.
+O pacote `snapshine-teste.zip` contém somente os arquivos públicos, incluindo `.htaccess` e `.well-known/security.txt`. O blog, os 9 artigos (`artigos/`), suas imagens de capa e as 12 fotos WebP selecionadas estão incluídos. As fotos de ambientes aparecem na home; os quatro pares reais estão no quadro original da seção Results, com miniaturas abaixo e divisão fixa, sem arraste, porque seus enquadramentos diferem. Os arquivos originais de fotos e vídeos, a galeria de curadoria e suas notas ficam fora do ZIP. Não há necessidade de build ou instalação de dependências no servidor.
 
 ## Upload
 
@@ -10,7 +10,7 @@ O pacote `snapshine-teste.zip` contém somente os arquivos públicos, incluindo 
 2. Extraia o conteúdo do ZIP diretamente na pasta raiz desse subdomínio. `index.html` e `.htaccess` devem ficar lado a lado, sem uma pasta extra envolvendo o site.
 3. Confira que os arquivos iniciados por ponto foram enviados. `.well-known` é uma pasta; `security.txt` fica dentro dela.
 4. Desative o cache de página/CDN do subdomínio no painel da hospedagem enquanto estiver revisando. O `.htaccess` envia `no-store` para o navegador; um cache imposto pelo painel pode exigir limpeza separada.
-5. Abra `/`, `/blog` e `/clear-cache` usando HTTPS. Os arquivos HTML continuam no servidor, mas a extensão não aparece nos endereços públicos.
+5. Abra `/`, `/blog`, um artigo (`/blog/<slug>`) e `/clear-cache` usando HTTPS. Os arquivos HTML continuam no servidor, mas a extensão não aparece nos endereços públicos.
 
 Requisitos da configuração: Apache 2.4 ou LiteSpeed compatível, com `.htaccess` habilitado e suporte a `mod_rewrite` e `mod_headers`. O site principal é estático. O arquivo PHP é apenas uma biblioteca para integração futura; o formulário permanece desativado.
 
@@ -20,8 +20,8 @@ Requisitos da configuração: Apache 2.4 ou LiteSpeed compatível, com `.htacces
 | --- | --- |
 | `.htaccess` | HTTPS temporário para o domínio de teste, bloqueio de arquivos internos, compressão, cabeçalhos de cache e `X-Robots-Tag`. |
 | `robots.txt` | Permite ler as páginas para que os buscadores reconheçam `noindex`; restringe utilitários. |
-| `sitemap.xml` | Lista as duas páginas existentes, com URLs do ambiente de teste. Não inclui artigos sem destino nem utilitários. |
-| `llms.txt` / `llms-full.txt` | Contexto da empresa, referências e indicação explícita de ambiente de teste e conteúdo demonstrativo. |
+| `sitemap.xml` | Lista a home, o blog e os 9 artigos, com URLs do ambiente de teste. Não inclui utilitários. |
+| `llms.txt` / `llms-full.txt` | Contexto da empresa, referências e indicação explícita de ambiente de teste e lista dos artigos do blog. |
 | `humans.txt` | Créditos do site e tecnologias utilizadas. |
 | `site.webmanifest` | Identidade do site, cores e ícone quadrado usando o logo existente. Abre no navegador; não declara funcionamento offline. |
 | `clear-cache.html` | Solicita a limpeza do cache deste domínio no navegador compatível via `Clear-Site-Data: "cache"`. Não limpa cookies, sessões, dados salvos ou cache do servidor. |
@@ -49,6 +49,7 @@ O sitemap foi preparado para validar a estrutura, mas **não deve ser enviado ao
 - `/.well-known/security.txt`: HTTP 200 e texto legível.
 - `/index.html` e `/index`: redirecionamento 301 para `/`.
 - `/blog.html` e `/blog/`: redirecionamento 301 para `/blog`, preservando parâmetros como `?page=2`.
+- `/blog/<slug>`: HTTP 200. `/blog/<slug>/`, `/artigos/<slug>.html` e o endereço antigo do WordPress `/<slug>/`: redirecionamento 301 para `/blog/<slug>`.
 - `/clear-cache.html`: redirecionamento 301 para `/clear-cache`.
 - `/clear-cache`: cabeçalho `Clear-Site-Data: "cache"`; o suporte depende do navegador e de HTTPS.
 - `/antispam.php`: HTTP 403 com este `.htaccess`. Se a regra Apache não estiver ativa, PHP retorna 503 e a mensagem de envio desativado.

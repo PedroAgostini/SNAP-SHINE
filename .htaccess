@@ -30,6 +30,16 @@ AddDefaultCharset UTF-8
 
   # Keep the HTML files on disk; expose extension-free page URLs.
   RewriteRule ^(blog|clear-cache)$ $1.html [END]
+
+  # Blog articles: artigos/<slug>.html is served at /blog/<slug>.
+  # The folder is not named "blog" so DirectorySlash never fights the /blog/ -> /blog redirect.
+  RewriteCond %{THE_REQUEST} \s/+artigos/[a-z0-9-]+(?:\.html)?[?\s] [NC]
+  RewriteRule ^artigos/([a-z0-9-]+)(?:\.html)?$ /blog/$1 [R=301,END]
+  RewriteRule ^blog/([a-z0-9-]+)(?:\.html|/+)$ /blog/$1 [R=301,END]
+  RewriteRule ^blog/([a-z0-9-]+)$ artigos/$1.html [END]
+
+  # Article addresses from the old WordPress site (/<slug>/) keep their links and ranking.
+  RewriteRule ^(bradenton-office-deep-commercial-cleaning|maid-service-bradenton-fl-reclaim-your-weekend|bradenton-office-cleaning-schedule-guide|pet-owners-dust-free-home-bradenton-fl|post-construction-cleaning-bradenton|diy-vs-pro-move-out-cleaning-bradenton-fl|house-cleaning-with-dogs-bradenton-fl|professional-deep-cleaning-bradenton-fl|house-cleaning-services-bradenton-fl-standard-clean)/?$ /blog/$1 [R=301,END]
 </IfModule>
 
 <IfModule mod_headers.c>

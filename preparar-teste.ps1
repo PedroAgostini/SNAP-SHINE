@@ -15,9 +15,13 @@ $publicFiles = @(
   'llms.txt', 'llms-full.txt', 'humans.txt', 'site.webmanifest',
   'clear-cache.html', 'antispam.php', '.well-known/security.txt'
 )
+# Blog articles: every artigos/<slug>.html is published and scanned for its images.
+$articleFiles = @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'artigos') -Filter '*.html' -File | Sort-Object Name | ForEach-Object { "artigos/$($_.Name)" })
+if ($articleFiles.Count -eq 0) { throw 'No articles found in artigos/' }
+$publicFiles += $articleFiles
 # Follow explicit local asset references, including data-before/data-after.
 # No dependency on private curation files; works from a fresh Git clone.
-$scanFiles = @('index.html', 'blog.html', 'clear-cache.html', 'site.webmanifest')
+$scanFiles = @('index.html', 'blog.html', 'clear-cache.html', 'site.webmanifest') + $articleFiles
 $usedAssets = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 for ($scanIndex = 0; $scanIndex -lt $scanFiles.Count; $scanIndex++) {
   $content = Get-Content -LiteralPath (Join-Path $projectRoot $scanFiles[$scanIndex]) -Raw
