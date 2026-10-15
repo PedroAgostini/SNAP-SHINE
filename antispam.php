@@ -38,7 +38,7 @@ function snapshine_antispam_errors(array $fields): array
     $digits = preg_replace('/\D/', '', $phone);
     if (!preg_match('/^(?:1)?\d{10}$/D', $digits)) $errors['phone'] = 'Enter a US phone number.';
 
-    $services = ['Regular Cleaning', 'Deep Cleaning', 'Move-In / Move-Out Cleaning', 'Post-Construction Cleaning', 'Commercial Cleaning'];
+    $services = ['Regular Cleaning', 'Deep Cleaning', 'Move-In / Move-Out Cleaning', 'Commercial Cleaning'];
     if (!in_array($fields['service'] ?? '', $services, true)) $errors['service'] = 'Choose an available service.';
     $date = $fields['date'] ?? '';
     if ($date !== '') {

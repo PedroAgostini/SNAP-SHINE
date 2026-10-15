@@ -1,48 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test environment inventory. Do not submit to search engines until production. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://snapshine.escolats.com.br/</loc>
-    <lastmod>2026-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog</loc>
-    <lastmod>2026-10-09</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/bradenton-office-deep-commercial-cleaning</loc>
-    <lastmod>2026-10-01</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/maid-service-bradenton-fl-reclaim-your-weekend</loc>
-    <lastmod>2026-09-23</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/bradenton-office-cleaning-schedule-guide</loc>
-    <lastmod>2026-09-17</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/pet-owners-dust-free-home-bradenton-fl</loc>
-    <lastmod>2026-09-02</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/post-construction-cleaning-bradenton</loc>
-    <lastmod>2026-08-20</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/diy-vs-pro-move-out-cleaning-bradenton-fl</loc>
-    <lastmod>2026-08-06</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/house-cleaning-with-dogs-bradenton-fl</loc>
-    <lastmod>2026-07-23</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/professional-deep-cleaning-bradenton-fl</loc>
-    <lastmod>2026-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://snapshine.escolats.com.br/blog/house-cleaning-services-bradenton-fl-standard-clean</loc>
-    <lastmod>2026-06-11</lastmod>
-  </url>
-</urlset>
+<!-- Sitemap index: site pages and blog posts are listed separately. -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://snapshineclean.com/sitemap-pages.xml</loc>
+    <lastmod>2026-10-15</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://snapshineclean.com/sitemap-blog.xml</loc>
+    <lastmod>2026-10-15</lastmod>
+  </sitemap>
+</sitemapindex>

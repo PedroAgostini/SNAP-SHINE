@@ -4,10 +4,10 @@ Website: https://eusouts.com.br/
 
 /* SITE */
 Project: Snap Shine Clean
-Environment: Test / staging
-URL: https://snapshine.escolats.com.br/
+Environment: Production
+URL: https://snapshineclean.com/
 Language: English (US)
-Last update: 2026-10-08
+Last update: 2026-10-15
 Standards: HTML5, CSS, JavaScript
 Animation: GSAP
 Typography: Gabarito, Figtree, Archivo via Google Fonts

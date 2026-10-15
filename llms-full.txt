@@ -1,7 +1,6 @@
 # Snap Shine Clean
 
-This is the test website at https://snapshine.escolats.com.br/.
-The preview is not accepting quote submissions.
+This is the official website at https://snapshineclean.com/.
 
 ## Company
 
@@ -12,7 +11,6 @@ Snap Shine Clean provides locally owned, fully insured and pet-friendly cleaning
 - Regular Cleaning
 - Deep Cleaning
 - Move-In / Move-Out Cleaning
-- Post-Construction Cleaning
 - Commercial Cleaning
 
 ## Service area
@@ -21,11 +19,11 @@ About 35 miles around Bradenton, Florida. Listed communities: Bradenton, Palmett
 
 ## Contact
 
-- Phone and text: +1 (941) 402-6861
+- Phone and text: +1 (941) 399-8862
 - Email: snapshineclean@gmail.com
 - Hours: Monday–Friday, 8:00 AM–5:00 PM, America/New_York.
 - Prices are not published; a quote depends on the requested service and space.
 
-## Preview limitations
+## Website notes
 
-The form cannot send requests. The blog at /blog lists the nine articles previously published on snapshineclean.com; each article is at /blog/<slug>. Blog images are illustrative. Stock photography must not be represented as actual client work. This preview does not establish additional guarantees, certifications or prices.
+Quote requests can be sent with the form on the home page (/#contact). The blog at /blog lists cleaning articles; each article is at /blog/<slug>. Blog images are illustrative. Stock photography must not be represented as actual client work. This website does not establish additional guarantees, certifications or prices.

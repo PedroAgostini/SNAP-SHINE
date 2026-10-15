@@ -1,28 +1,31 @@
-# Snap Shine Clean — test website
+# Snap Shine Clean
 
-> Preview of the Snap Shine Clean website, a locally owned residential and commercial cleaning company serving Bradenton, Florida, and nearby communities.
+> Official website of Snap Shine Clean, a locally owned residential and commercial cleaning company serving Bradenton, Florida, and nearby communities.
 
-This domain is a staging environment, not the public production website. Quote submissions are disabled. The blog carries the nine articles previously published on snapshineclean.com. Some photographs on the home page are stock images; do not treat them, or the illustrative blog images, as evidence of completed jobs.
+Visitors can request a quote online, call or text. The blog carries cleaning tips and guides for homes and offices in Bradenton, FL. Some photographs on the home page are stock images; do not treat them, or the illustrative blog images, as evidence of completed jobs.
 
 ## Website
 
-- [Business information](https://snapshine.escolats.com.br/llms-full.txt): Services, service area, contact details and preview limitations.
-- [Home](https://snapshine.escolats.com.br/): Company overview and cleaning services.
-- [Blog](https://snapshine.escolats.com.br/blog): Cleaning tips and guides for homes and offices in Bradenton, FL.
+- [Business information](https://snapshineclean.com/llms-full.txt): Services, service area, contact details and website notes.
+- [Home](https://snapshineclean.com/): Company overview and cleaning services.
+- [Blog](https://snapshineclean.com/blog): Cleaning tips and guides for homes and offices in Bradenton, FL.
 
 ## Blog articles
 
-- [5 Warning Signs Your Bradenton Office Needs a Deep Commercial Cleaning](https://snapshine.escolats.com.br/blog/bradenton-office-deep-commercial-cleaning): Dusty vents, lingering odors, sick days, worn floors and smudged glass: five signs your Bradenton office needs a deep commercial cleaning.
-- [Stop Wasting Your Weekends: The Hidden Value of Hiring a Maid Service in Bradenton, FL](https://snapshine.escolats.com.br/blog/maid-service-bradenton-fl-reclaim-your-weekend): What a regular maid service in Bradenton, FL is really worth: hours back every weekend, less stress and better-protected floors and finishes.
-- [How Often Should Your Bradenton Office Be Professionally Cleaned?](https://snapshine.escolats.com.br/blog/bradenton-office-cleaning-schedule-guide): Daily, weekly, bi-weekly or monthly? How to choose the right professional cleaning schedule for your Bradenton office, based on traffic and size.
-- [The Pet Owner's Guide to Keeping a Dust-Free Home in Bradenton, FL](https://snapshine.escolats.com.br/blog/pet-owners-dust-free-home-bradenton-fl): Pet dander, humidity and Florida sand make dust build up fast. Practical steps Bradenton pet owners can take to keep their homes cleaner.
-- [Post-Construction Cleaning in Bradenton: Don't Let Dust Ruin Your Remodel](https://snapshine.escolats.com.br/blog/post-construction-cleaning-bradenton): Why post-construction cleaning protects your new finishes, your AC system and your pets after a remodel in Bradenton, FL.
-- [DIY vs. Professional Move-Out Cleaning: Which is Actually Cheaper in Bradenton, FL?](https://snapshine.escolats.com.br/blog/diy-vs-pro-move-out-cleaning-bradenton-fl): Is DIY move-out cleaning really cheaper in Bradenton, FL? A cost comparison of supplies, hours of labor, pet messes and hidden expenses.
-- [5 Realistic Ways to Keep Your House Clean When You Have Dogs (and No Time) in Bradenton, FL](https://snapshine.escolats.com.br/blog/house-cleaning-with-dogs-bradenton-fl): Five realistic ways busy Bradenton dog owners can manage pet hair, tracked-in sand, odors and daily mess without chasing perfection.
-- [Is Professional Deep Cleaning Worth It? 5 Hidden Benefits for Your Home in Bradenton, FL](https://snapshine.escolats.com.br/blog/professional-deep-cleaning-bradenton-fl): Five hidden benefits of professional deep cleaning for Bradenton homes, from removing pet dander and odors to cleaner air and longer-lasting floors.
-- [House Cleaning Services in Bradenton FL: What Does a Standard Clean Include?](https://snapshine.escolats.com.br/blog/house-cleaning-services-bradenton-fl-standard-clean): What a standard house cleaning in Bradenton, FL covers, room by room: kitchens, bathrooms, living areas and bedrooms, and why regular upkeep matters.
+- [The Ultimate Move-In House Cleaning Checklist for New Bradenton Homeowners](https://snapshineclean.com/blog/move-in-house-cleaning-checklist-bradenton-fl): Get your new Bradenton home ready before unpacking with a room-by-room move-in cleaning checklist for kitchens, bathrooms, floors, appliances and vents.
+- [Florida Humidity & Dust: How to Keep Your Bradenton Home Fresh and Mold-Free Year-Round](https://snapshineclean.com/blog/florida-humidity-dust-mold-prevention-bradenton-fl): Manage humidity and dust in your Bradenton home with practical cleaning tips for vents, window tracks, bathrooms and baseboards, plus mold-prevention guidance.
+- [5 Warning Signs Your Bradenton Office Needs a Deep Commercial Cleaning](https://snapshineclean.com/blog/bradenton-office-deep-commercial-cleaning): Dusty vents, lingering odors, sick days, worn floors and smudged glass: five signs your Bradenton office needs a deep commercial cleaning.
+- [Stop Wasting Your Weekends: The Hidden Value of Hiring a Maid Service in Bradenton, FL](https://snapshineclean.com/blog/maid-service-bradenton-fl-reclaim-your-weekend): What a regular maid service in Bradenton, FL is really worth: hours back every weekend, less stress and better-protected floors and finishes.
+- [How Often Should Your Bradenton Office Be Professionally Cleaned?](https://snapshineclean.com/blog/bradenton-office-cleaning-schedule-guide): Daily, weekly, bi-weekly or monthly? How to choose the right professional cleaning schedule for your Bradenton office, based on traffic and size.
+- [The Pet Owner's Guide to Keeping a Dust-Free Home in Bradenton, FL](https://snapshineclean.com/blog/pet-owners-dust-free-home-bradenton-fl): Pet dander, humidity and Florida sand make dust build up fast. Practical steps Bradenton pet owners can take to keep their homes cleaner.
+- [DIY vs. Professional Move-Out Cleaning: Which is Actually Cheaper in Bradenton, FL?](https://snapshineclean.com/blog/diy-vs-pro-move-out-cleaning-bradenton-fl): Is DIY move-out cleaning really cheaper in Bradenton, FL? A cost comparison of supplies, hours of labor, pet messes and hidden expenses.
+- [5 Realistic Ways to Keep Your House Clean When You Have Dogs (and No Time) in Bradenton, FL](https://snapshineclean.com/blog/house-cleaning-with-dogs-bradenton-fl): Five realistic ways busy Bradenton dog owners can manage pet hair, tracked-in sand, odors and daily mess without chasing perfection.
+- [Is Professional Deep Cleaning Worth It? 5 Hidden Benefits for Your Home in Bradenton, FL](https://snapshineclean.com/blog/professional-deep-cleaning-bradenton-fl): Five hidden benefits of professional deep cleaning for Bradenton homes, from removing pet dander and odors to cleaner air and longer-lasting floors.
+- [House Cleaning Services in Bradenton FL: What Does a Standard Clean Include?](https://snapshineclean.com/blog/house-cleaning-services-bradenton-fl-standard-clean): What a standard house cleaning in Bradenton, FL covers, room by room: kitchens, bathrooms, living areas and bedrooms, and why regular upkeep matters.
 
 ## Optional
 
-- [Credits](https://snapshine.escolats.com.br/humans.txt): Website development credits.
-- [Security contact](https://snapshine.escolats.com.br/.well-known/security.txt): Contact for reporting website vulnerabilities.
+- [Privacy Policy](https://snapshineclean.com/privacy-policy): How quote requests, calls, texts and emails are handled.
+- [Terms of Use](https://snapshineclean.com/terms-of-use): Terms for using the website and requesting quotes.
+- [Credits](https://snapshineclean.com/humans.txt): Website development credits.
+- [Security contact](https://snapshineclean.com/.well-known/security.txt): Contact for reporting website vulnerabilities.

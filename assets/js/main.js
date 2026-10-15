@@ -431,25 +431,50 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (current < steps.length - 1) { if (validStep(current)) show(current + 1); return; } // Enter acts as Next
-      // Test environment: never send data or display a false success confirmation.
-      if (form.hasAttribute('data-submission-disabled')) return;
       error.hidden = true;
       if (!validStep(current)) return;
 
+      const data = new FormData(form);
+      const done = () => { success.hidden = false; success.focus(); form.reset(); show(0, false); };
+      // Bots fill the hidden honeypot fields: show the same thank-you, send nothing.
+      if (data.get('company_website') || data.get('botcheck')) { done(); return; }
+      data.delete('company_website');
+      data.delete('botcheck');
+
       submit.disabled = true; label.textContent = 'Sending…';
       try {
-        const action = form.getAttribute('action');
-        if (!action) throw new Error('Form endpoint is not configured');
-        const res = await fetch(action, { method: form.getAttribute('method') || 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error('Request failed');
-        success.hidden = false; success.focus();
-        form.reset(); show(0, false);
+        // Web3Forms is the delivery of record. FormData keeps it a simple request (no CORS preflight).
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false) throw new Error(json.message || 'Request failed');
+        sendLead(data);
+        done();
       } catch (err) {
         error.hidden = false;
       } finally {
         submit.disabled = false; label.textContent = 'Schedule My Cleaning';
       }
     });
+
+    // Copy of the lead for the lead platform. Best effort: it never blocks or fails the visitor's request.
+    function sendLead(data) {
+      const url = form.dataset.leadWebhook;
+      if (!url) return;
+      const lead = {
+        form_id: form.dataset.formId || data.get('form_id'),
+        source: location.hostname,
+        page: location.href.split('#')[0],
+        submitted_at: new Date().toISOString(),
+        service: data.get('service'),
+        zip: data.get('zip'),
+        preferred_date: data.get('date') || '',
+        message: data.get('message') || '',
+        name: data.get('name'),
+        phone: data.get('phone'),
+        email: data.get('email'),
+      };
+      fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead), keepalive: true }).catch(() => {});
+    }
 
     show(0, false);
   }

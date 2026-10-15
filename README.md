@@ -6,9 +6,9 @@
   <p>Site institucional de limpeza residencial e comercial em Bradenton, Flórida.</p>
 
   <p>
-    <a href="https://snapshine.escolats.com.br/">Ambiente de teste</a> ·
-    <a href="https://snapshine.escolats.com.br/#results">Antes e depois</a> ·
-    <a href="AMBIENTE-DE-TESTE.md">Publicação</a>
+    <a href="https://snapshineclean.com/">snapshineclean.com</a> ·
+    <a href="https://snapshineclean.com/#results">Antes e depois</a> ·
+    <a href="#publicar-em-produção">Publicação</a>
   </p>
   <p><strong>HTML · CSS · JavaScript · GSAP · WebP</strong><br>Sem framework. Sem etapa de build.</p>
 </div>
@@ -26,9 +26,12 @@ Uma experiência voltada a apresentar os serviços, mostrar resultados reais e f
 | Página inicial | Apresentação, serviços, portfólio, depoimentos, diferenciais e contato. |
 | Portfólio real | Quatro pares de antes e depois, quadro proporcional e miniaturas sem cortes. |
 | Navegação mobile | Menu compacto, carrossel de fotos e barra de contato fixa. |
-| Blog | Os 9 artigos do site antigo, em páginas estáticas com sumário, SEO completo (meta tags, Open Graph, JSON-LD) e artigos relacionados. |
+| Blog | 10 artigos (8 do site antigo e 2 novos), em páginas estáticas com sumário, SEO completo (meta tags, Open Graph, JSON-LD) e artigos relacionados. |
+| Páginas legais e 404 | `/privacy-policy` e `/terms-of-use` com sumário lateral; `404.html` personalizada para qualquer endereço inexistente. |
 | Movimento | GSAP/ScrollTrigger e respeito à preferência por movimento reduzido. |
-| Ambiente de teste | Configuração Apache/LiteSpeed, `noindex`, cache desativado e formulário bloqueado. |
+| Cartão de visitas | `/redirect`: ligar, SMS, orçamento, site, e-mail, Facebook e botão para salvar o contato (`snap-shine-clean.vcf`). Ideal para QR code e bio. |
+| Formulário de orçamento | Envio pelo Web3Forms (principal) e cópia opcional do lead para um webhook (`form01`), com honeypot contra bots. |
+| Produção | Domínio canônico `https://snapshineclean.com` (sem www), indexação liberada, cache por tipo de arquivo e 404 personalizada. |
 
 ## Executar localmente
 
@@ -45,9 +48,9 @@ Com Node.js instalado, inicie a prévia local (sem instalar dependências):
 node servir-local.cjs
 ```
 
-Acesse **http://127.0.0.1:4173/**, **http://127.0.0.1:4173/blog** ou um artigo, como **http://127.0.0.1:4173/blog/post-construction-cleaning-bradenton**. O servidor local reproduz as URLs sem extensão e os redirecionamentos das páginas antigas. Fontes do Google, GSAP, imagens de banco ainda presentes e o mapa dependem de conexão com a internet.
+Acesse **http://127.0.0.1:4173/**, **http://127.0.0.1:4173/blog** ou um artigo, como **http://127.0.0.1:4173/blog/house-cleaning-with-dogs-bradenton-fl**. O servidor local reproduz as URLs sem extensão e os redirecionamentos das páginas antigas. Fontes do Google, GSAP, imagens de banco ainda presentes e o mapa dependem de conexão com a internet.
 
-Na hospedagem Apache/LiteSpeed, o `.htaccess` atende `/blog` e `/clear-cache` usando os arquivos HTML internamente. `/index.html` redireciona para `/`, e `/blog.html` redireciona para `/blog`, preservando parâmetros da URL. Cada artigo fica em `artigos/<slug>.html` e é servido em `/blog/<slug>`; os endereços antigos do WordPress (`/<slug>/`) redirecionam com 301 para o novo endereço. Servidores estáticos genéricos que ignoram `.htaccess` precisam de configuração equivalente.
+Na hospedagem Apache/LiteSpeed, o `.htaccess` atende `/blog`, `/privacy-policy`, `/terms-of-use` e `/clear-cache` usando os arquivos HTML internamente, e responde endereços inexistentes com `404.html` (status 404). `/index.html` redireciona para `/`, e `/blog.html` redireciona para `/blog`, preservando parâmetros da URL. Cada artigo fica em `artigos/<slug>.html` e é servido em `/blog/<slug>`; os endereços antigos do WordPress (`/<slug>/`) redirecionam com 301 para o novo endereço. Servidores estáticos genéricos que ignoram `.htaccess` precisam de configuração equivalente.
 
 ## Estrutura
 
@@ -98,26 +101,26 @@ Para trocar um par, edite a miniatura correspondente em `index.html`:
 
 Atualize também o `src` da miniatura, suas dimensões e a lista de arquivos permitidos no `.gitignore`. Antes de publicar, confira se todas as fotos novas estão no commit.
 
-## Publicar no ambiente de teste
+## Publicar em produção
 
-No PowerShell, execute a partir da pasta do projeto:
+Envie para a raiz (`public_html`) de **snapshineclean.com**, preservando `.htaccess` e `.well-known/`:
 
-```powershell
-./preparar-teste.ps1
-```
+- `index.html`, `blog.html`, `privacy-policy.html`, `terms-of-use.html`, `404.html`, `redirect.html`, `snap-shine-clean.vcf`, `clear-cache.html`
+- `artigos/`
+- `assets/css/`, `assets/js/`, `assets/icons/`, `assets/img/`, `assets/imagens-blog/`, `assets/imagens-selecionadas/ambientes/` e `assets/imagens-selecionadas/antes-e-depois/`
+- `.htaccess`, `.well-known/`, `robots.txt`, `sitemap.xml` (índice), `sitemap-pages.xml`, `sitemap-blog.xml`, `llms.txt`, `llms-full.txt`, `humans.txt`, `site.webmanifest`
 
-O script gera `snapshine-teste.zip` com os arquivos públicos e os recursos locais referenciados pelas páginas, incluindo as fotos dos atributos `data-before` e `data-after`. Ele não precisa das pastas privadas de curadoria e pode ser executado após um clone limpo.
+Não envie `assets/imagens/` (originais), arquivos `.md`, `servir-local.cjs` nem a pasta `.impeccable/`. A hospedagem deve ter HTTPS ativo e Apache 2.4 ou LiteSpeed compatível.
 
-Extraia o conteúdo do ZIP na raiz do subdomínio **snapshine.escolats.com.br**, preservando `.htaccess` e `.well-known/`. A hospedagem deve ter HTTPS e Apache 2.4 ou LiteSpeed compatível. Consulte [as instruções completas de publicação](AMBIENTE-DE-TESTE.md).
+Ao alterar CSS ou JS, atualize o parâmetro `?v=` nas páginas: esses arquivos ficam 30 dias em cache no navegador.
 
 ## Estado desta versão
 
-> **Ambiente de teste:** o envio de orçamento está desativado. O site contém `noindex` e não deve ser usado em produção sem revisar a configuração.
-
-- O formulário permite navegar pelas etapas, mas não envia mensagens. `antispam.php` é uma biblioteca auxiliar, não um endpoint ativo.
-- O blog traz os 9 artigos publicados em snapshineclean.com, com o texto original e as imagens originais de capa.
+- O formulário envia pelo Web3Forms e, após o sucesso, pode copiar o lead para um webhook (`data-lead-webhook`). Uma falha no webhook não afeta o visitante.
+- **Este repositório público não contém credenciais:** preencha `access_key` e `data-lead-webhook` em `index.html` antes de publicar. A versão de produção fica em um repositório privado.
+- `antispam.php` é uma biblioteca auxiliar, não um endpoint ativo; o `.htaccess` bloqueia o acesso direto.
+- O blog traz 10 artigos: 8 do site antigo e 2 novos; os endereços do WordPress (`/<slug>/`) redirecionam com 301 para `/blog/<slug>`. O artigo de post-construction foi removido junto com o serviço e redireciona com 301 para `/blog`.
 - Algumas imagens ilustrativas de banco continuam em serviços e no CTA do blog. As fotos do portfólio são reais.
-- A interface foi conferida em Chromium e WebKit, incluindo telas de 320 a 1440 px. A aplicação do `.htaccess` e a execução de PHP precisam ser conferidas na hospedagem.
 
 ## Créditos
 
